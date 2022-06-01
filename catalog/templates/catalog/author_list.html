@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Author List</h1>
   {% if author_list %}
-  <ul>
+  <ul style="font-size: 18px;">
     {% for author in author_list %}
       <li>
         <a href="{{ author.get_absolute_url }}">{{ author.first_name }} {{ author.last_name }} ({{author.date_of_birth}})</a>

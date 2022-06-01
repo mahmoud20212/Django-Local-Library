@@ -4,7 +4,12 @@
   <h1>Author: {{ author }} </h1>
 
   <p>{{ author.date_of_birth }}</p>
-
+  {% if user.is_authenticated %}
+    {% if perms.catalog.can_mark_returned %}
+      <a class="btn btn-secondary" href="{% url 'author-update' author.id %}"><i class="fa-solid fa-user-pen"></i> {{ author }}</a>
+      <a class="btn btn-danger" href="{% url 'author-delete' author.id %}"><i class="fa-solid fa-trash"></i> {{ author }}</a>
+    {% endif %}
+  {% endif %}
   <div style="margin-left:20px;margin-top:20px">
     <h4>Books</h4>
 
